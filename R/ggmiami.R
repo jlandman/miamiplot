@@ -124,7 +124,8 @@ ggmiami <- function(
   upper_line = NULL,
   upper_line_color = 'red',
   lower_line = NULL,
-  lower_line_color = 'red') {
+  lower_line_color = 'red',
+  return_ggplot_obj = FALSE) {
 
   # Prepare the data
   plot_data <- prep_miami_data(data = data, split_by = split_by,
@@ -448,6 +449,9 @@ ggmiami <- function(
     grid::grid.newpage()
     grid::grid.draw(mPlot)
   }
-  
+
+  if (return_ggplot_obj) {
+    return(list('upper' = upper_plot, 'lower' = lower_plot))
+  }
   return(mPlot)
 }
