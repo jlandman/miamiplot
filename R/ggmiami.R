@@ -417,7 +417,9 @@ ggmiami <- function(
   # Put the two together
   gUpper <- ggplotGrob(upper_plot)
   gLower <- ggplotGrob(lower_plot)
-  grid::grid.newpage()
-  grid::grid.draw(rbind(gUpper, gLower))
+  maxWidth = grid::unit.pmax(gUpper$widths[2:5], gLower$widths[2:5])
+  gA$widths[2:5] <- as.list(maxWidth)
+  gB$widths[2:5] <- as.list(maxWidth)
+  grid.arrange(gUpper, gLower, nrow=2)
 
 }
