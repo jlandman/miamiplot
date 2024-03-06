@@ -422,7 +422,7 @@ ggmiami <- function(
   gLower$widths[2:5] <- as.list(maxWidth)
   
   mPlot = gridExtra::arrangeGrob(gUpper, gLower, nrow=2)
-  grid.newpage()
-  grid.draw(mPlot)
+  grid::grid.newpage()
+  grid::grid.draw(mPlot)
   return(mPlot)
 }
