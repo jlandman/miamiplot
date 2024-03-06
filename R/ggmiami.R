@@ -418,11 +418,11 @@ ggmiami <- function(
   # Put the two together
   gUpper <- ggplot2::ggplotGrob(upper_plot)
   gLower <- ggplot2::ggplotGrob(lower_plot)
-  maxWidth = grid::unit.pmax(gUpper$widths[2:5], gLower$widths[2:5])
+  maxWidth <- grid::unit.pmax(gUpper$widths[2:5], gLower$widths[2:5])
   gUpper$widths[2:5] <- as.list(maxWidth)
   gLower$widths[2:5] <- as.list(maxWidth)
   
-  mPlot = gridExtra::arrangeGrob(gUpper, gLower, nrow=2)
+  mPlot <- gridExtra::arrangeGrob(gUpper, gLower, nrow=2)
 
   if (render) {
     grid::grid.newpage()
