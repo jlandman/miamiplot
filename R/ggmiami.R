@@ -276,7 +276,7 @@ ggmiami <- function(
 
 
   # If the user has requested a suggetive line, add:
-  if (!is.null(upper_line) & !is.null(lower_line)) {
+  if (is.null(upper_line) & is.null(lower_line)) {
     if (!is.null(suggestive_line)) {
       upper_plot <- upper_plot +
         ggplot2::geom_hline(yintercept = -log10(suggestive_line),
