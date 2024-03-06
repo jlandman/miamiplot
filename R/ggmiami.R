@@ -120,7 +120,11 @@ ggmiami <- function(
   lower_highlight_col = NULL,
   lower_highlight_color = "green",
   split_p = FALSE,
-  render = TRUE) {
+  render = TRUE,
+  upper_line = NULL,
+  upper_line_color = 'red',
+  lower_line = NULL,
+  lower_line_color = 'red') {
 
   # Prepare the data
   plot_data <- prep_miami_data(data = data, split_by = split_by,
@@ -272,27 +276,43 @@ ggmiami <- function(
 
 
   # If the user has requested a suggetive line, add:
-  if (!is.null(suggestive_line)) {
-    upper_plot <- upper_plot +
-      ggplot2::geom_hline(yintercept = -log10(suggestive_line),
-                          color = suggestive_line_color,
-                          linetype = "solid", size = 0.4)
-    lower_plot <- lower_plot +
-      ggplot2::geom_hline(yintercept = -log10(suggestive_line),
-                          color = suggestive_line_color,
-                          linetype = "solid", size = 0.4)
-  }
+  if (!is.null(upper_line) & !is.null(lower_line) {
+    if (!is.null(suggestive_line)) {
+      upper_plot <- upper_plot +
+        ggplot2::geom_hline(yintercept = -log10(suggestive_line),
+                            color = suggestive_line_color,
+                            linetype = "solid", size = 0.4)
+      lower_plot <- lower_plot +
+        ggplot2::geom_hline(yintercept = -log10(suggestive_line),
+                            color = suggestive_line_color,
+                            linetype = "solid", size = 0.4)
+    }
+  
+    # If the user has requested a genome-wide line, add:
+    if (!is.null(genome_line)) {
+      upper_plot <- upper_plot +
+        ggplot2::geom_hline(yintercept = -log10(genome_line),
+                            color = genome_line_color,
+                            linetype = "dashed", size = 0.4)
+      lower_plot <- lower_plot +
+        ggplot2::geom_hline(yintercept = -log10(genome_line),
+                            color = genome_line_color,
+                            linetype = "dashed", size = 0.4)
+    }
+  } else {
+    if (!is.null(upper_line)) {
+      upper_plot <- upper_plot +
+        ggplot2::geom_hline(yintercept = -log10(upper_line),
+                            color = upper_line_color,
+                            linetype = "solid", size = 0.4)
+    }
 
-  # If the user has requested a genome-wide line, add:
-  if (!is.null(genome_line)) {
-    upper_plot <- upper_plot +
-      ggplot2::geom_hline(yintercept = -log10(genome_line),
-                          color = genome_line_color,
-                          linetype = "dashed", size = 0.4)
-    lower_plot <- lower_plot +
-      ggplot2::geom_hline(yintercept = -log10(genome_line),
-                          color = genome_line_color,
-                          linetype = "dashed", size = 0.4)
+    if (!is.null(lower_line)) {
+      lower_plot <- lower_plot +
+        ggplot2::geom_hline(yintercept = -log10(lower_line),
+                            color = lower_line_color,
+                            linetype = "solid", size = 0.4)
+    }
   }
 
   # If they try to specify both hits_label_col and dataframe(s), return an
