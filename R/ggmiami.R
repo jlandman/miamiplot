@@ -179,9 +179,8 @@ ggmiami <- function(
   }
 
   # Create base upper plot.
-  upper_plot <- ggplot2::ggplot() +
-    ggplot2::geom_point(data = plot_data$upper,
-                        aes(x = .data$rel_pos, y = .data$logged_p,
+  upper_plot <- ggplot2::ggplot(data = plot_data$upper) +
+    ggplot2::geom_point(aes(x = .data$rel_pos, y = .data$logged_p,
                             color = as.factor(.data$chr)), size = 0.25) +
     ggplot2::scale_x_continuous(labels = plot_data$axis$chr,
                                 breaks = plot_data$axis$chr_center,
@@ -198,9 +197,8 @@ ggmiami <- function(
                    plot.margin = ggplot2::margin(t = 10, b = 0, l = 10, r = 10))
 
   # Create base lower plot
-  lower_plot <- ggplot2::ggplot() +
-    ggplot2::geom_point(data = plot_data$lower,
-                        aes(x = .data$rel_pos, y = .data$logged_p,
+  lower_plot <- ggplot2::ggplot(data = plot_data$lower) +
+    ggplot2::geom_point(aes(x = .data$rel_pos, y = .data$logged_p,
                             color = as.factor(.data$chr)), size = 0.25) +
     ggplot2::scale_x_continuous(breaks = plot_data$axis$chr_center,
                                 position = "top",
