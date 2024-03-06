@@ -119,7 +119,8 @@ ggmiami <- function(
   lower_highlight = NULL,
   lower_highlight_col = NULL,
   lower_highlight_color = "green",
-  split_p = FALSE) {
+  split_p = FALSE,
+  render = TRUE) {
 
   # Prepare the data
   plot_data <- prep_miami_data(data = data, split_by = split_by,
@@ -422,7 +423,11 @@ ggmiami <- function(
   gLower$widths[2:5] <- as.list(maxWidth)
   
   mPlot = gridExtra::arrangeGrob(gUpper, gLower, nrow=2)
-  grid::grid.newpage()
-  grid::grid.draw(mPlot)
+
+  if (render) {
+    grid::grid.newpage()
+    grid::grid.draw(mPlot)
+  }
+  
   return(mPlot)
 }
