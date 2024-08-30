@@ -349,6 +349,7 @@ ggmiami <- function(
                                 ylim = c(plot_data$upper_maxp / 2, NA),
                                 min.segment.length = 0, force = 2,
                                 label.size = NA,
+                                parse = TRUE,
                                 box.padding = 0.5)
 
     lower_plot <- lower_plot +
@@ -361,6 +362,7 @@ ggmiami <- function(
                                 ylim = c(NA, -(plot_data$lower_maxp / 2)),
                                 min.segment.length = 0, force = 2,
                                 label.size = NA,
+                                parse = TRUE,
                                 box.padding = 0.5)
   }
 
