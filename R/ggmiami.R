@@ -340,7 +340,7 @@ ggmiami <- function(
 
     # Add to the plots
     upper_plot <- upper_plot +
-      ggrepel::geom_label_repel(data = upper_labels_df,
+      ggrepel::geom_text_repel(data = upper_labels_df,
                                 aes(x = .data$rel_pos,
                                     y = .data$logged_p,
                                     label = .data$label),
@@ -351,7 +351,7 @@ ggmiami <- function(
                                 box.padding = 0.5)
 
     lower_plot <- lower_plot +
-      ggrepel::geom_label_repel(data = lower_labels_df,
+      ggrepel::geom_text_repel(data = lower_labels_df,
                                 aes(x = .data$rel_pos,
                                     y = .data$logged_p,
                                     label = .data$label),
