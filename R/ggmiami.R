@@ -346,7 +346,7 @@ ggmiami <- function(
                                     label = .data$label),
                                 size = 2, segment.size = 0.2,
                                 point.padding = 0.3,
-                                ylim = c(plot_data$maxp / 2, NA),
+                                ylim = c(plot_data$upper_maxp / 2, NA),
                                 min.segment.length = 0, force = 2,
                                 box.padding = 0.5)
 
@@ -357,7 +357,7 @@ ggmiami <- function(
                                     label = .data$label),
                                 size = 2, segment.size = 0.2,
                                 point.padding = 0.3,
-                                ylim = c(NA, -(plot_data$maxp / 2)),
+                                ylim = c(NA, -(plot_data$lower_maxp / 2)),
                                 min.segment.length = 0, force = 2,
                                 box.padding = 0.5)
   }
@@ -376,7 +376,7 @@ ggmiami <- function(
                                       label = .data$label),
                                   size = 2, segment.size = 0.2,
                                   point.padding = 0.3,
-                                  ylim = c(plot_data$maxp / 2, NA),
+                                  ylim = c(plot_data$upper_maxp / 2, NA),
                                   min.segment.length = 0, force = 2,
                                   box.padding = 0.5)
   }
@@ -395,7 +395,7 @@ ggmiami <- function(
                                       label = .data$label),
                                   size = 2, segment.size = 0.2,
                                   point.padding = 0.3,
-                                  ylim = c(NA, -(plot_data$maxp / 2)),
+                                  ylim = c(NA, -(plot_data$lower_maxp / 2)),
                                   min.segment.length = 0, force = 2,
                                   box.padding = 0.5)
   }
